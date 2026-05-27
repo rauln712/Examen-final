@@ -1,1 +1,8 @@
 Guadalajara,Madrid,45.0
+Guadalajara,Alcala,25
+Alcala,Madrid,35
+Madrid,Toledo,55
+Madrid,Segovia,65
+Madrid,Cuenca,110
+Cuenca,Valencia,150
+Madrid,Valencia,220
