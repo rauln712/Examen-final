@@ -1,40 +1,4 @@
-import dijkstra
-
-def detectar_hub(red):
-    """
-    BONUS 8: Detecta la estación con mayor número de conexiones directas (grado).
-    Devuelve (nombre_hub, num_conexiones).
-    """
-    if not red.grafo:
-        print("  [!] La red está vacía.")
-        return None, 0
- 
-    hub = max(red.grafo, key=lambda e: len(red.grafo[e]))
-    num_conexiones = len(red.grafo[hub])
-    return hub, num_conexiones
- 
- 
-def exportar_informe(red, nombre_archivo):
-    """
-    BONUS 8 (extra): Exporta un informe .txt con estadísticas de la red.
-    """
-    hub, num_conexiones_hub = detectar_hub(red)
-    if hub is None:
-        return
- 
-    # Calcular número total de conexiones (sin duplicar)
-    total_aristas = sum(len(v) for v in red.grafo.values()) // 2
- 
-    try:
-        with open(nombre_archivo, "w", encoding="utf-8") as f:
-            f.write("====== INFORME DE LA RED DE TRANSPORTE ======\n\n")
-            f.write(f"Número de estaciones:   {len(red.grafo)}\n")
-            f.write(f"Número de conexiones:   {total_aristas}\n")
-            f.write(f"Estación hub:           {hub} ({num_conexiones_hub} conexiones)\n")
-        print(f"  [OK] Informe exportado en '{nombre_archivo}'.")
-    except Exception as e:
-        print(f"  [!] Error al exportar el informe: {e}")
- 
+from dijkstra import dijkstra
  
 def ruta_con_intermedia(red, origen, intermedia, destino):
     """

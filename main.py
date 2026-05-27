@@ -4,7 +4,7 @@ from RedTransporte import RedTransporte
 from persistencia import cargar_desde_archivo, guardar_en_archivo
 from dijkstra import dijkstra
 from BFS import estan_conectadas
-from bonus import detectar_hub, exportar_informe, ruta_con_intermedia
+from bonus import ruta_con_intermedia
 
 
 def mostrar_menu():
@@ -20,8 +20,7 @@ def mostrar_menu():
     print("  6. ¿Están conectadas dos estaciones?")
     print("  7. Guardar y salir")
     print("  --- BONUS ---")
-    print("  8. Detectar estación hub y exportar informe")
-    print("  9. Ruta pasando por estación intermedia")
+    print("  8. Ruta pasando por estación intermedia")
     print("=" * 45)
  
  
@@ -104,20 +103,8 @@ def ejecutar_menu(red, archivo_por_defecto):
             print("  ¡Hasta luego!")
             break  # Salir del bucle
  
-        # --- Opción 8 (BONUS): Hub e informe ---
+        # --- Opción 8 (BONUS): Ruta con intermedia ---
         elif opcion == 8:
-            hub, num = detectar_hub(red)
-            if hub:
-                print(f"\n  Estación hub: '{hub}' con {num} conexiones directas.")
-                exportar = input("  ¿Exportar informe? (s/n): ").strip().lower()
-                if exportar == "s":
-                    nombre_inf = input("  Nombre del archivo de informe [informe.txt]: ").strip()
-                    if not nombre_inf:
-                        nombre_inf = "informe.txt"
-                    exportar_informe(red, nombre_inf)
- 
-        # --- Opción 9 (BONUS): Ruta con intermedia ---
-        elif opcion == 9:
             origen = input("  Estación origen: ").strip()
             intermedia = input("  Estación intermedia (obligatoria): ").strip()
             destino = input("  Estación destino: ").strip()
