@@ -31,6 +31,11 @@ class RedTransporte:
         Valida que las estaciones existan, que el tiempo sea positivo
         y que la conexión no sea duplicada.
         """
+        #Vemos que no sea la misma estacion
+        if origen == destino:
+            print("  [!] El origen y el destino no pueden ser la misma estación.")
+            return
+        
         # Validar existencia de estaciones
         if origen not in self.grafo:
             print(f"  [!] La estación origen '{origen}' no existe.")

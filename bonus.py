@@ -2,12 +2,21 @@ from dijkstra import dijkstra
  
 def ruta_con_intermedia(red, origen, intermedia, destino):
     """
-    BONUS 9: Calcula la ruta más rápida de origen a destino pasando por intermedia.
+    BONUS 8: Calcula la ruta más rápida de origen a destino pasando por intermedia.
     Hace dos Dijkstra: origen->intermedia y intermedia->destino.
     Une los caminos y suma los tiempos.
     """
     print(f"\n  Calculando: {origen} -> {intermedia} -> {destino}")
- 
+#Validacion de que no sea repetidos
+    if origen == intermedia:
+        print("  [!] El origen y la estación intermedia no pueden ser la misma.")
+        return
+    if intermedia == destino:
+        print("  [!] La estación intermedia y el destino no pueden ser la misma.")
+        return
+    if origen == destino:
+        print("  [!] El origen y el destino no pueden ser la misma estación.")
+        return
     # Primer tramo: origen -> intermedia
     camino1, tiempo1 = dijkstra(red, origen, intermedia)
     if camino1 is None:
