@@ -17,6 +17,9 @@ class RedTransporte:
     def añadir_estacion(self, estacion):
         """Añade una estación al grafo si no existe ya."""
         estacion = estacion.strip()
+        if not estacion:
+            print("  [!] El nombre de la estación no puede estar vacío.")
+            return
         if estacion in self.grafo:
             print(f"  [!] La estación '{estacion}' ya existe.")
         else:
