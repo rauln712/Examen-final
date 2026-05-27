@@ -41,7 +41,7 @@ def ejecutar_menu(red, archivo_por_defecto):
         try:
             opcion = int(input("  Elige una opción: ").strip())
         except ValueError:
-            print("  [!] Debes introducir un número del 1 al 9.")
+            print("  [!] Debes introducir un número del 1 al 8.")
             continue
  
         # --- Opción 1: Cargar desde archivo ---
@@ -112,7 +112,7 @@ def ejecutar_menu(red, archivo_por_defecto):
  
         # --- Opción inválida ---
         else:
-            print("  [!] Opción no válida. Elige entre 1 y 9.")
+            print("  [!] Opción no válida. Elige entre 1 y 8.")
  
 if __name__ == "__main__":
     ARCHIVO_POR_DEFECTO = "red_transporte.txt"
